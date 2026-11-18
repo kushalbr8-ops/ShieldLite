@@ -1,0 +1,28 @@
+{
+        "sql_injection": [
+          "UNION SELECT", "' OR 1=1", "\" OR \"1\"=\"1", "sleep(", "benchmark(", "information_schema",
+          "select * from", "or 1=1", "--", ";--", "; drop", "'; drop", "/*", "*/", "@@version", "xp_"
+        ],
+        "xss": [
+          "<script>", "</script>", "onerror=", "onload=", "alert(", "prompt(", "document.cookie",
+          "javascript:", "svg/onload"
+        ],
+        "directory_traversal": [
+          "../", "..\\", "/etc/passwd", "C:\\windows\\system32", "/var/www", "boot.ini"
+        ],
+        "command_injection": [
+          "; ls", "; cat", "& whoami", "| sh", "| bash", "$(whoami)", "`whoami`", ";wget"
+        ],
+        "ssrf": [
+          "127.0.0.1", "localhost", "169.254.169.254", "metadata.google.internal"
+        ],
+        "rfi_lfi": [
+          "php://input", "php://filter", "data://text", "file://", "http://evil.com"
+        ],
+        "api_abuse": [
+          "admin", "config", "root", "hidden", "private", "backup", "wp-admin", "wp-login"
+        ],
+        "waf_bypass": [
+          "0x00", "%00", "%2e%2e", "%2f", "\\x", "base64", "eval(", "Obfuscation"
+        ]
+      }

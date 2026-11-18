@@ -1,0 +1,13 @@
+# agent/nginx-snippet.txt
+
+# 1) Add a custom log format (captures essentials)
+log_format shieldlite '$remote_addr - $remote_user [$time_local] "$request" '
+                      '$status $body_bytes_sent "$http_referer" "$http_user_agent"';
+
+# 2) Forward logs to your log-collector syslog server using UDP:
+# Replace YOUR_COLLECTOR_IP with the public IP or domain of the machine that runs syslog-listener.py
+access_log syslog:server=YOUR_COLLECTOR_IP:5514,tag=shieldlite shieldlite;
+
+# Example (inside http {}):
+# log_format shieldlite ...;
+# access_log syslog:server=203.0.113.5:5514,tag=shieldlite shieldlite;
